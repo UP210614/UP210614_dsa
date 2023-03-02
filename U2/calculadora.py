@@ -71,26 +71,18 @@ def operacion(operacion):
                     break
     value = stack.pop()
     return value
-def enlistar(op):
-    op = list(op)
-    op.append('a')
-    op2 = []
-    stack = deque()
-    for i in op:
-
-        if i not in ['+','-','/','*','(',')','a','^']:
-            stack.append(i)
-        elif i in ['+','-','/','*','(',')','a','^']:
-            contador = len(stack)-1
-            a= ''
-            while contador >= 0:
-                a = a + stack.popleft()
-                contador -= 1
-            if a != '':
-                op2.append(a)
-            if i != 'a':
-             op2.append(i)
-    return op2
+def enlistar(n):
+    op=[]
+    a =''
+    for i in n:
+        if i not in ['+','-','/','*','(',')','^']:
+            a +=i
+        else:
+            if a!='':
+                op.append(a)
+            op.append(i)
+            a = ''
+    return op
 def operacionFinal(op):
     a = enlistar(op)
     b = infix_posfix(a)
@@ -103,6 +95,5 @@ n = input("Introduzca una operación: ")
 #b = infix_posfix(a)
 #c = operacion(b)
 print(operacionFinal(n))
-print(enlistar(n))
 
 
