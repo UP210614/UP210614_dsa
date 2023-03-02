@@ -82,8 +82,8 @@ def enlistar(op):
             stack.append(i)
         elif i in ['+','-','/','*','(',')','a','^']:
             contador = len(stack)-1
-            a = ''
-            while contador >= 0 and stack[contador] not in ['+','-','/','*']:
+            a= ''
+            while contador >= 0:
                 a = a + stack.popleft()
                 contador -= 1
             if a != '':
@@ -91,12 +91,18 @@ def enlistar(op):
             if i != 'a':
              op2.append(i)
     return op2
+def operacionFinal(op):
+    a = enlistar(op)
+    b = infix_posfix(a)
+    c = operacion(b)
+    return c
 
 n = input("Introduzca una operación: ")
 
-a = enlistar(n)
-b = infix_posfix(a)
-c = operacion(b)
-print(c)
+#a = enlistar(n)
+#b = infix_posfix(a)
+#c = operacion(b)
+print(operacionFinal(n))
+print(enlistar(n))
 
 
