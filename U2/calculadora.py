@@ -117,7 +117,6 @@ def enlistar(n):
             a = ''
     if a != '':
         op.append(a)
-
     return op
 def operacionFinal(op):
     a = enlistar(op)
@@ -127,5 +126,5 @@ def operacionFinal(op):
 
 n = input("Introduzca una operación: ")
 
-print(operacionFinal(n))
+print(enlistar(n))
 
